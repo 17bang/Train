@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        //var message = "hello, world!";
+        //var age = 18;
+        //var year = "2";
+        ////alert(age + parseInt(year));
+        //var xxx = null;
+        //alert(xxx);
+
+        //alert( 1 === "1");
+
+
+
+        //var i = 100, j = 99;
+
+        //if (i > j) {
+        //    alert("飞哥胜诉！");
+        //} else {
+        //    alert("叶飞，赔钱！")
+        //}
+
+        //var judge = "world";
+
+        //switch (judge) {
+        //    case "hello":
+        //        alert("H");
+        //        break;
+        //    case "world":
+        //        alert("W");
+        //        break;
+        //}
+
+        //for (var i = 0; i < 5; i++) {
+        //    alert(i);
+        //}
+
+        //var i = 0;
+        //while (i < 5) {
+        //    alert(i);
+        //    i++;  //i = i + 1;
+        //}
+
+        var arr = [2, 8, 1, 5, 7];  //数组
+
+        //alert(arr.length);
+
+        //遍历整个数组元素
+        //判断比较
+        //有一个变量做为结构
+
+
+
+        var max;
+
+
+
+        function getMax(arr) {
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i] > arr[i + 1]) {
+                    arr[i + 1] = arr[i];
+                };
+            }
+            return arr[arr.length - 1];
+        }
+
+
+
+        alert(getMax(arr));
+
+
+        //非冒泡排序（飞哥的思路）
+        //遍历数组
+            //取出最大的一个，放到结果数组中
+            //从原数组中移除该（最大的）元素
+            //在剩下数组元素中找最大数
+            //... 重复上述过程，直到结果数组排满
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
