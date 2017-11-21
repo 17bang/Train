@@ -44,7 +44,7 @@
         //    i++;  //i = i + 1;
         //}
 
-        var arr = [2, 8, 1, 5, 7];  //数组
+        //var arr = [2, 8, 1, 5, 7];  //数组
 
         //alert(arr.length);
 
@@ -54,31 +54,153 @@
 
 
 
-        var max;
+        //var max;
 
 
 
-        function getMax(arr) {
-            for (var i = 0; i < arr.length; i++) {
-                if (arr[i] > arr[i + 1]) {
-                    arr[i + 1] = arr[i];
-                };
-            }
-            return arr[arr.length - 1];
-        }
+        //function getMax(arr) {
+        //    for (var i = 0; i < arr.length; i++) {
+        //        if (arr[i] > arr[i + 1]) {
+        //            arr[i + 1] = arr[i];
+        //        };
+        //    }
+        //    return arr[arr.length - 1];
+        //}
 
 
 
-        alert(getMax(arr));
+        //alert(getMax(arr));
 
 
         //非冒泡排序（飞哥的思路）
         //遍历数组
-            //取出最大的一个，放到结果数组中
-            //从原数组中移除该（最大的）元素
-            //在剩下数组元素中找最大数
-            //... 重复上述过程，直到结果数组排满
+        //取出最大的一个，放到结果数组中
+        //从原数组中移除该（最大的）元素
+        //在剩下数组元素中找最大数
+        //... 重复上述过程，直到结果数组排满
 
+
+        /* 作用域 */
+
+        //var i = 10;
+
+        //function showI() {
+        //    i = 100;
+        //    alert("showI:" + i);
+        //}
+        //showI();
+
+        ////var i = 100;
+
+        //function showIAgain() {
+        //    alert("showIAgain:" + i);
+        //}
+        //showIAgain();
+
+        //for (var i = 0; i < 3; i++)
+        //{
+        //    let j = 100;
+
+        //    alert(j);
+        //}
+        //alert(j);
+
+
+        /*  ---------------------
+           ----  闭包  ---------
+          --------------------- */
+
+        //function parent() {
+        //    var i;
+
+        //    function getI() {
+        //        if (i < 0) {
+        //            return 0;
+        //        } else {
+        //            return i;
+        //        }
+        //    }
+
+        //    function setI() {
+        //        i = 100;
+        //    }
+
+        //    //return child();
+        //    //return i;
+        //}
+
+        //alert(parent());
+
+        /*  ------------------------------
+           ----  这个函数有点怪  ---------
+          ------------------------------ */
+
+        //var ss = function (x, y) {
+        //    alert(x + y);
+        //};
+        //ss(1, 2);
+
+        //console.log(ss.prototype);
+
+        //ss(1, 2);
+        //function ss(x, y) {
+        //    alert(x + y);
+        //}
+
+
+        //function fn1(fn) {
+        //    fn();
+        //}
+
+        //function callback() {
+        //    alert("hehe");
+        //}
+
+        //fn1(function () {
+        //    alert("hehe");
+        //});
+
+
+        /*  ------------------------------
+           ----  立即执行函数表达式 ------
+          ------------------------------ */
+
+
+        //var fn = ;
+
+
+        ////a.js
+        //(function () {
+        //    var message;
+        //    A = function() {
+        //        message = "I'm a.js";
+        //        //alert(message);
+        //    }
+        //})();
+
+        ////b.js
+        //(function () {
+        //    var message = "I'm b.js";
+        //    B = function() {
+        //        alert(message);
+        //    }
+        //})();
+
+        //A();
+        //B();
+
+
+        //(function() {
+        //    alert("hehe");
+        //}) ();
+
+        var f1 = function () {            var res = [];            for (var i = 0; i < 10; i++) {                // 添加一个IIFE                (function (index) {                    fun = function () { console.log(index); };                    res.push(fun);                })(i);            }            return res;        }
+        var arrFn = f1();
+        for (var i = 0; i < arrFn.length; i++) {
+            arrFn[i]();   //Goto 202 本身的函数体里没有i，往父一级函数体中寻找
+
+            //父函数此时已循环完毕，i=10
+        }
 
     </script>
 </head>
